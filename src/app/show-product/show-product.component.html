@@ -1,0 +1,91 @@
+<ng-container *ngIf=" retrieveProduct | async as product ; else failure">
+  <br>
+  <div class="container">
+
+
+  <div class="card shadow mb-4 col-xs-12 col-md-8 border-bottom-primary">
+    <div class="card-header py-3">
+      <h4 class="m-2 font-weight-bold "style="color:#946826;">Detail du Produit</h4>
+
+    </div>
+
+    <div class="card-body">
+
+      <div class="form-group row text-left">
+
+        <div class="col-sm-3 " style="color:#946826;">
+          <h5>
+            ID :
+            <br>
+          </h5>
+        </div>
+
+        <div class="col-sm-9">
+          <h5>
+            {{product.id}}
+            <br>
+          </h5>
+        </div>
+
+      </div>
+
+      <div class="form-group row text-left">
+
+        <div class="col-sm-3 " style="color:#946826;">
+          <h5>
+            Nom :
+            <br>
+          </h5>
+        </div>
+
+        <div class="col-sm-9">
+          <h5>
+            {{product.name}}
+            <br>
+          </h5>
+        </div>
+
+      </div>
+
+
+
+      <div class="form-group row text-left">
+
+        <div class="col-sm-3 " style="color:#946826;">
+          <h5>
+            Prix :<br>
+          </h5>
+        </div>
+
+        <div class="col-sm-9">
+          <h5>
+              {{product.price}}
+            <br>
+          </h5>
+        </div>
+
+      </div>
+
+
+
+
+    </div>
+    <div class="card-footer py-3">
+
+
+      <div class="btn-group">
+
+        <button class="btn btn-secondary" [routerLink]="['/products']"> RETOUR</button>
+      </div>
+
+
+    </div>
+  </div>
+  </div>
+</ng-container>
+
+<ng-template #failure>
+  <div>
+    Salut
+  </div>
+</ng-template>

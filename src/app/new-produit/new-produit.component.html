@@ -1,0 +1,61 @@
+<div class="container">
+  <h3>Creation d'un nouveau produit</h3>
+  <br>
+
+<div *ngIf="newProductFormGroup">
+
+  <form  class="form" [formGroup]="newProductFormGroup" (ngSubmit)="saveProduit()" >
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label>Nom : </label>
+          <input type="text" class="form-control" formControlName ="name">
+          <span class="text-danger"
+                *ngIf="newProductFormGroup.controls['name'].touched
+           && newProductFormGroup.controls['name'].errors
+            && newProductFormGroup.controls['name'].errors!['required']"
+          >
+             Name is required !!
+          </span>
+
+
+        </div>
+
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label>Price (MAD): </label>
+          <input type="number" step="any" class="form-control" formControlName="price" >
+        </div>
+
+      </div>
+    </div>
+
+    <br>
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="form-group">
+
+          <textarea class="form-control" placeholder="Description..." formControlName="description"></textarea>
+
+        </div>
+
+      </div>
+    </div>
+    <br> <br>
+    <div class="btn-group">
+      <button [disabled]="!newProductFormGroup.valid"  class="btn btn-primary" > ENREGISTRER</button>
+    </div>
+
+    <div class="btn-group">
+      <button class="btn btn-danger mx-2" type="reset"> ANNULER</button>
+    </div>
+  </form>
+</div>
+
+  </div>
+
+
