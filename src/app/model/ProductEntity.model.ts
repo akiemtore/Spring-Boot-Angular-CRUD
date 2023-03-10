@@ -2,11 +2,11 @@ export class  ProductEntity {
 
   id!: number
 
-  name! : String
+  name! : string
 
   price! : number
 
-  description! : String
+  description! : string
 
   constructor() {
   }

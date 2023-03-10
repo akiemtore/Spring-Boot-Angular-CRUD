@@ -3,6 +3,7 @@ import {Product} from "../model/product.model";
 import {ProductServiceService} from "../Services/product-service.service";
 import {Observable} from "rxjs";
 import {ActivatedRoute} from "@angular/router";
+import {ProductEntity} from "../model/ProductEntity.model";
 
 @Component({
   selector: 'app-show-product',
@@ -14,7 +15,7 @@ export class ShowProductComponent implements OnInit{
   productId: string | null = ""
 
   paramObj! : object
-  retrieveProduct! : Observable<Product>
+  retrieveProduct! : Observable<ProductEntity>
 
   constructor(private productService: ProductServiceService , private activeRoute : ActivatedRoute) {
   }

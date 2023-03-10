@@ -28,9 +28,9 @@ export class ProductServiceService {
    return this.http.get<Array<Product>>(this.BackendHost+"/products/range?min="+min+"&max="+max);
   }
 
-  public saveNewProduct(p :  ProductEntity) : Observable <Product> {
+  public saveNewProduct(p :  ProductEntity) : Observable < ProductEntity> {
 
-   return this.http.post<Product>(this.BackendHost+"/products" ,p);
+   return this.http.post< ProductEntity>(this.BackendHost+"/products" ,p);
   }
 
   public deleteProduct(id: string)   {
@@ -38,8 +38,13 @@ export class ProductServiceService {
     return this.http.delete(this.BackendHost+"/products/"+id);
   }
 
-  public  findProduct(id: string | null) : Observable<Product> {
+  public  findProduct(id: string | null) : Observable<ProductEntity> {
 
-   return this.http.get<Product>(this.BackendHost+"/products/"+id)
+   return this.http.get<ProductEntity>(this.BackendHost+"/products/"+id)
+  }
+
+  public updateProduct(p : ProductEntity , id: string | null) :Observable<ProductEntity> {
+
+   return this.http.put<ProductEntity>(this.BackendHost+"/products/"+id , p)
   }
 }
